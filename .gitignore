@@ -1,0 +1,4 @@
+.pytest_cahce/
+yandex_auto_venv/
+.idea/
+__pycache__/
