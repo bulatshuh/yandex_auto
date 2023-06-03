@@ -1,13 +1,13 @@
-from pages.main_page import MainPage
-from pages.locators import MainPageLocators
+from pages.disk_page import DiskPage
+from pages.locators import BasePageLocators
 from pages.locators import DiskPageLocators
+from lib.test_data import TestData
 import pytest
-import time
 
 
 @pytest.fixture()
 def open_main_page(get_browser):
-    page = MainPage(get_browser, 'https://yandex.ru')
+    page = DiskPage(get_browser, TestData.main_url)
     page.open()
     page.go_to_full_screen()
     yield page
@@ -19,7 +19,9 @@ class TestSendWebRequests:
 
         page = open_main_page
         page.solve_captcha()
-        page.wait_element_is_presented(*MainPageLocators.LOGIN_ICON_BUTTON, 25)
+        page.wait_element_is_presented(*BasePageLocators.LOGIN_ICON_BUTTON, 25)
         page.login()
-        page.open_disk()
+        page.open_url(TestData.disk_url)
         assert page.element_is_presented(*DiskPageLocators.CREATE_BUTTON)
+        page.create_folder()
+        page.copy_file()
