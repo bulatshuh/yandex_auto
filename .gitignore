@@ -1,4 +1,4 @@
-.pytest_cahce/
+.pytest_cache/
 yandex_auto_venv/
 .idea/
 __pycache__/
