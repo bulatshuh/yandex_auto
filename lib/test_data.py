@@ -1,5 +1,8 @@
 # input your credentials and security question
-
-login = ''
-password = ''
-answer = ''
+class TestData:
+    main_url = 'https://yandex.ru'
+    disk_url = 'https://disk.yandex.ru'
+    login = ''
+    password = ''
+    answer = ''
+    folder_name = 'Name'
